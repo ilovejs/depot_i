@@ -59,6 +59,7 @@ class LineItemsController < ApplicationController
         format.html { redirect_to store_url } #  redirect_to(store_url) @line_item.cart
         format.json { render json: @line_item,
           status: :created, location: @line_item }
+        format.js { @current_item = @line_item }#give response with format .js
       else
         format.html { render action: "new" }
         format.json { render json: @line_item.errors,
